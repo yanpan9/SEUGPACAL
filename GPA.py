@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 import re
 import sys
-print (sys.argv[1])
 score=['Your Score:']
 with open(sys.argv[1],'r') as file:
 	for line in file.readlines():
