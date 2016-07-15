@@ -27,6 +27,8 @@ while n<len(score):
 		elif score[n-1]=='优':
 			sum+=float(score[n-2])*4.5
 			credit+=float(score[n-2])
+		elif int(score[n-1])<60:
+			credit+=float(score[n-2])
 		elif int(score[n-1])>=60 and int(score[n-1])<63:
 			sum+=float(score[n-2])*1.0
 			credit+=float(score[n-2])
