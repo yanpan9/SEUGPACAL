@@ -8,11 +8,14 @@ def openfile():
 	root.filename =  filedialog.askopenfilename(initialdir = "~/Study/python",title = "Select your file",filetypes = (("html files","*.html"),("all files","*.*")))	
 def calculate():
 	score=['Your Score:']
-	with open(root.filename,'r') as file:
-		for line in file.readlines():
-			temp=re.findall('0%</span>"&gt;</span>(.*)&amp;nbsp',line)
-			for x in temp:
-				score.append(x)
+	try:
+		with open(root.filename,'r') as file:
+			for line in file.readlines():
+				temp=re.findall('0%</span>"&gt;</span>(.*)&amp;nbsp',line)
+				for x in temp:
+					score.append(x)
+	except:
+		openfile()
 	score.pop(0)
 	score.pop()
 	sum=0
@@ -71,7 +74,7 @@ def calculate():
 				sum+=float(score[n-2])*4.8
 				credit+=float(score[n-2])
 		n+=5
-	t.insert('1.0',"your GPA is:")
+	t.insert(1.0,"your GPA is:")
 	t.insert('2.0',sum/credit)
 	t.insert('3.0',"\n")
 frame=Frame(root)
